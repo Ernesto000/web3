@@ -19,7 +19,7 @@ contract HumanzFactory {
     // We're providing instructions about where the _name variable 
     //should be stored- in memory. This is required for all reference types 
     //such as arrays, structs, mappings, and strings.
-    function _createHuman(string memory _name,uint _dna) private {
+    function _createHuman(string memory _name,uint _dna) internal {//private to internal for migration purposes
         //_functions are set to public by default
         uint id = humanz.push(Human(_name, _dna)) -1;//added the id uint to count the arr
         //In Solidity, function execution always needs to start with an external caller. 
