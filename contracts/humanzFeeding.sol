@@ -19,10 +19,12 @@ contract KittyInterface {
 }
 
 contract HumanzFeeding is HumanzFactory {
-  //en la linea uno guardamos el contrato de CriptoKitties en una variable
-  //en la linea dos llamamos el contrato para usar sus funciones public y external
-  address ckAddress = 0x06012c8cf97BEaD5deAe237070F9587f8E7A266d;
-  KittyInterface kittyContract = KittyInterface(ckAddress);
+  //borramos las lineas y recibimos la direccion
+  KittyInterface kittyContract;
+//usamos el ownable para que onlyOwner pueda usar el contrato criptoKitty.
+    function setKittyContractAddress(address _address) external onlyOwner {
+    kittyContract = KittyInterface(_address);
+  }
    
 
   function feedAndMultiply(uint _humanId, uint _targetDna string memory _species) public{
